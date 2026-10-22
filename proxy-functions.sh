@@ -24,10 +24,11 @@ proxy-on() {
     export all_proxy="socks5h://127.0.0.1:10808"
     export HTTP_PROXY="http://127.0.0.1:10809"
     export HTTPS_PROXY="http://127.0.0.1:10809"
-    export ALL_PROXY="socks5h://127.0.0.1:10808"
+   export ALL_PROXY="socks5h://127.0.0.1:10808"
     export no_proxy="localhost,127.0.0.1,::1"
+    alias sudo="sudo -E "
 
-    # Set permanently for future terminals
+   
     sudo bash -c "cat > $ACTIVE_ENV_FILE" <<EOF
 export http_proxy="http://127.0.0.1:10809"
 export https_proxy="http://127.0.0.1:10809"
@@ -36,6 +37,7 @@ export HTTP_PROXY="http://127.0.0.1:10809"
 export HTTPS_PROXY="http://127.0.0.1:10809"
 export ALL_PROXY="socks5h://127.0.0.1:10808"
 export no_proxy="localhost,127.0.0.1,::1"
+alias sudo="sudo -E "
 EOF
 
     # Set for the APT package manager (on Debian/Ubuntu distributions)
