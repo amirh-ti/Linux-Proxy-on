@@ -56,6 +56,7 @@ proxy-off() {
     sudo systemctl stop cli-proxy.service
 
     unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy
+    unalias sudo 2>/dev/null
     sudo rm -f "$ACTIVE_ENV_FILE" "$APT_CONF_FILE"
 
     echo -e "\033[0;33m[✓] Proxy disabled and cleaned up from the system.\033[0m"
