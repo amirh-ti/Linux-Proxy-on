@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <!-- پس‌زمینه دارک مدرن سازگار با گیت‌هاب -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="50%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#090d13" />
+    </linearGradient>
+
+    <!-- گرادینت باکس ترمینال (بار روی کمر پنگوئن) -->
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- درخشش نئونی سبز برای proxy-on -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- سایه نرم برای باکس و پنگوئن -->
+    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+
+    <!-- گرادینت بدن پنگوئن (Tux) -->
+    <linearGradient id="tuxBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b3137" />
+      <stop offset="100%" stop-color="#0d1014" />
+    </linearGradient>
+
+    <!-- گرادینت شکم سفید پنگوئن -->
+    <linearGradient id="tuxBelly" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+
+    <!-- گرادینت نوک و پاهای پنگوئن -->
+    <linearGradient id="tuxOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+
+    <!-- الگوی شبکه سایبری پس‌زمینه -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#30363d" stroke-width="0.7" stroke-opacity="0.35" />
+    </pattern>
+  </defs>
+
+  <!-- قاب اصلی لوگو -->
+  <rect x="15" y="15" width="570" height="370" rx="28" fill="url(#bgGrad)" stroke="#30363d" stroke-width="2" />
+  <rect x="15" y="15" width="570" height="370" rx="28" fill="url(#grid)" />
+
+  <!-- هاله نوری سبز در پشت بار و پنگوئن -->
+  <circle cx="260" cy="180" r="130" fill="#10b981" opacity="0.08" filter="blur(20px)" />
+  <circle cx="340" cy="240" r="100" fill="#3b82f6" opacity="0.07" filter="blur(20px)" />
+
+  <!-- سایه روی زمین -->
+  <ellipse cx="315" cy="348" rx="145" ry="14" fill="#030508" opacity="0.75" />
+
+  <!-- خطوط سرعت و فشار بار -->
+  <g stroke="#38bdf8" stroke-width="2" stroke-linecap="round" opacity="0.45">
+    <line x1="95" y1="210" x2="135" y2="210" />
+    <line x1="110" y1="230" x2="140" y2="230" />
+    <line x1="85" y1="250" x2="125" y2="250" />
+  </g>
+
+  <!-- ==================== پای عقبی پنگوئن ==================== -->
+  <g transform="translate(215, 322) rotate(-18)">
+    <path d="M 0,0 C 15,-12 45,-10 55,4 C 60,12 48,18 35,18 L -5,16 C -12,15 -10,5 0,0 Z" fill="url(#tuxOrange)" stroke="#9a3412" stroke-width="1.5" />
+  </g>
+
+  <!-- ==================== باکس سنگین proxy-on روی کمر پنگوئن ==================== -->
+  <g transform="translate(245, 145) rotate(-22)" filter="url(#dropShadow)">
+    <!-- بعد سه‌بعدی کناری باکس -->
+    <path d="M -135,-75 L -150,-60 L -150,55 L -135,40 Z" fill="#090d16" stroke="#334155" stroke-width="1.5" />
+    <path d="M -150,55 L 105,55 L 120,40 L -135,40 Z" fill="#090d16" stroke="#334155" stroke-width="1.5" />
+
+    <!-- بدنه اصلی باکس ترمینال -->
+    <rect x="-135" y="-75" width="255" height="115" rx="12" fill="url(#boxGrad)" stroke="#10b981" stroke-width="2.5" />
+
+    <!-- نوار بالای پنجره ترمینال -->
+    <path d="M -133,-63 C -133,-70 -128,-73 -122,-73 L 107,-73 C 113,-73 118,-70 118,-63 L 118,-48 L -133,-48 Z" fill="#0f172a" />
+    <line x1="-133" y1="-48" x2="118" y2="-48" stroke="#334155" stroke-width="1.5" />
+
+    <!-- دکمه‌های پنجره ترمینال -->
+    <circle cx="-115" cy="-60" r="5" fill="#ef4444" />
+    <circle cx="-99" cy="-60" r="5" fill="#f59e0b" />
+    <circle cx="-83" cy="-60" r="5" fill="#10b981" />
+    <text x="-7" y="-56" fill="#94a3b8" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">root@linux:~</text>
+
+    <!-- نوشته اصلی proxy-on داخل باکس -->
+    <text x="-115" y="-6" fill="#38bdf8" font-family="monospace" font-size="24" font-weight="bold">$</text>
+    <text x="-92" y="-5" fill="#10b981" font-family="monospace" font-size="31" font-weight="900" letter-spacing="1" filter="url(#neonGlow)">proxy-on</text>
+    <!-- مکان‌نمای چشمک‌زن ترمینال -->
+    <rect x="82" y="-29" width="13" height="26" rx="2" fill="#10b981" opacity="0.85" filter="url(#neonGlow)" />
+
+    <!-- تگ‌های پروتکل‌ها در پایین باکس -->
+    <g transform="translate(-115, 12)">
+      <rect x="0" y="0" width="48" height="18" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
+      <text x="24" y="13" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">VLESS</text>
+
+      <rect x="54" y="0" width="48" height="18" rx="4" fill="#1e293b" stroke="#a855f7" stroke-width="1" />
+      <text x="78" y="13" fill="#c084fc" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">VMESS</text>
+
+      <rect x="108" y="0" width="54" height="18" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1" />
+      <text x="135" y="13" fill="#fbbf24" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">TROJAN</text>
+
+      <rect x="168" y="0" width="54" height="18" rx="4" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+      <text x="195" y="13" fill="#34d399" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">SOCKS5</text>
+    </g>
+
+    <!-- تسمه‌ها و طناب‌های بسته شده دور بار -->
+    <!--rect x="-75" y="-78" width="12" height="122" rx="3" fill="#d97706" stroke="#78350f" stroke-width="1.5" />
+    <rect x="45" y="-78" width="12" height="122" rx="3" fill="#d97706" stroke="#78350f" stroke-width="1.5" /-->
+  </g>
+
+  <!-- ==================== بدن پنگوئن لینوکس (در حال حمل بار) ==================== -->
+  <g filter="url(#dropShadow)">
+    <!-- دم پنگوئن -->
+    <path d="M 205,295 L 180,305 L 198,280 Z" fill="#1b2026" />
+
+    <!-- بدنه اصلی خم شده به جلو -->
+    <g transform="translate(310, 255) rotate(34)">
+      <!-- پشت و بدن سیاه -->
+      <ellipse cx="0" cy="0" rx="68" ry="88" fill="url(#tuxBody)" stroke="#090c10" stroke-width="2" />
+      <!-- شکم سفید -->
+      <ellipse cx="18" cy="8" rx="50" ry="70" fill="url(#tuxBelly)" />
+    </g>
+
+    <!-- طناب حمایل شده روی شانه پنگوئن -->
+    <path d="M 278,192 Q 338,235 352,272" fill="none" stroke="#d97706" stroke-width="8" stroke-linecap="round" />
+    <path d="M 278,192 Q 338,235 352,272" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,4" stroke-linecap="round" />
+
+    <!-- سر پنگوئن (خم شده به جلو و مصمم) -->
+    <g transform="translate(378, 198) rotate(12)">
+      <!-- جمجمه -->
+      <circle cx="0" cy="0" r="46" fill="url(#tuxBody)" stroke="#090c10" stroke-width="2" />
+
+      <!-- چشم چپ و راست -->
+      <ellipse cx="14" cy="-8" rx="10" ry="13" fill="#ffffff" />
+      <ellipse cx="30" cy="-6" rx="9" ry="12" fill="#ffffff" />
+      <circle cx="18" cy="-6" r="4.5" fill="#090d16" />
+      <circle cx="32" cy="-4" r="4" fill="#090d16" />
+      <circle cx="16" cy="-8" r="1.5" fill="#ffffff" />
+      <circle cx="30" cy="-6" r="1.5" fill="#ffffff" />
+
+      <!-- ابروهای درهم‌رفته (نشان‌دهنده سنگینی بار و تلاش) -->
+      <path d="M 2,-20 L 22,-13" stroke="#090d16" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M 40,-16 L 25,-12" stroke="#090d16" stroke-width="4" stroke-linecap="round" />
+
+      <!-- منقار نارنجی پنگوئن -->
+      <path d="M 32,2 C 55,0 68,10 64,18 C 60,25 40,26 24,20 C 18,17 22,4 32,2 Z" fill="url(#tuxOrange)" stroke="#9a3412" stroke-width="1.5" />
+      <!-- خط لبخند/فشار روی منقار -->
+      <path d="M 30,13 Q 46,16 58,13" fill="none" stroke="#7c2d12" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- بال (دست) پنگوئن که زیر باکس و طناب را محکم گرفته است -->
+    <path d="M 315,225 C 285,205 255,190 250,170 C 246,156 264,152 278,165 C 298,182 325,195 342,220 C 352,235 332,238 315,225 Z" fill="url(#tuxBody)" stroke="#090c10" stroke-width="2" />
+
+    <!-- پای جلویی پنگوئن (محکم روی زمین) -->
+    <g transform="translate(318, 334) rotate(5)">
+      <path d="M 0,0 C 18,-12 52,-10 64,6 C 68,14 55,20 40,20 L -6,18 C -14,17 -12,6 0,0 Z" fill="url(#tuxOrange)" stroke="#9a3412" stroke-width="1.5" />
+    </g>
+  </g>
+
+  <!-- ==================== قطرات عرق (نشان‌دهنده سنگینی بار) ==================== -->
+  <g fill="#38bdf8">
+    <path d="M 435,152 C 435,152 447,164 443,171 C 439,177 429,175 429,167 C 429,161 435,152 435,152 Z" opacity="0.9" />
+    <path d="M 455,172 C 455,172 464,181 461,186 C 458,191 450,189 450,183 C 450,178 455,172 455,172 Z" opacity="0.75" />
+  </g>
+
+  <!-- ==================== عنوان پایین لوگو ==================== -->
+  <text x="300" y="374" fill="#64748b" font-family="monospace" font-size="12" font-weight="bold" letter-spacing="3" text-anchor="middle">LINUX SYSTEM-WIDE PROXY CARRIER</text>
+</svg>
