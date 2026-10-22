@@ -97,7 +97,7 @@ $ proxy-status
 <div dir="ltr">
 
 ```bash
-bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh](https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh)) && source /etc/profile.d/cli-proxy.sh
+bash <(curl -Ls https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh) && source /etc/profile.d/cli-proxy.sh
 ```
 
 </div>
@@ -108,7 +108,7 @@ bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/
 <div dir="ltr">
 
 ```bash
-bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh](https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh))
+bash <(curl -Ls https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh)
 ```
 
 </div>
