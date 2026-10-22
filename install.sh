@@ -27,7 +27,7 @@ case "$ARCH" in
 esac
 
 if [ ! -f "$PROXY_DIR/xray" ]; then
-    curl -sL "https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-${XRAY_ARCH}.zip" -o /tmp/xray.zip
+    curl -sL "https://mirror.ghproxy.com/https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-${XRAY_ARCH}.zip" -o /tmp/xray.zip
     unzip -q -o /tmp/xray.zip xray geoip.dat geosite.dat -d "$PROXY_DIR/"
     chmod +x "$PROXY_DIR/xray"
     rm -f /tmp/xray.zip
@@ -49,6 +49,7 @@ cat > /etc/systemd/system/cli-proxy.service <<EOF
 [Unit]
 Description=Linux CLI Universal Proxy Core (Xray)
 After=network.target
+ConditionPathExists=/opt/cli-proxy/config.json
 
 [Service]
 Type=simple
