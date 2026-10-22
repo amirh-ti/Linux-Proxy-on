@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="media/logo.svg" width="320" alt="ProxyCLI Logo">
+  <img src="media/logo.svg" width="320" alt="Linux-Proxy-on Logo">
 </p>
 
-<h1 align="center">⚡ ProxyCLI ⚡</h1>
+<h1 align="center">⚡ Linux-Proxy-on ⚡</h1>
 
 <p align="center">
   <b>A fast, lightweight, all-in-one Linux terminal proxy manager supporting VLESS, VMess, Trojan, Shadowsocks, SOCKS4/5, and HTTP.</b>
@@ -21,14 +21,14 @@
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Powered%20by-Xray--core-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Xray-core">
   <img src="https://img.shields.io/badge/Linux-Ubuntu%20%7C%20Debian%20%7C%20Arch-E95420?style=for-the-badge&logo=linux&logoColor=white" alt="OS">
-  <img src="https://img.shields.io/github/license/amirh-ti/ProxyCLI?style=for-the-badge&color=blue" alt="License">
+  <img src="https://img.shields.io/github/license/amirh-ti/Linux-Proxy-on?style=for-the-badge&color=blue" alt="License">
 </p>
 
 ---
 
 ## 📌 Project Overview
 
-Setting up modern proxy protocols (like VLESS-Reality, VMess, or Trojan) on a headless Linux server or terminal environment usually requires complex JSON configurations and manual environment variable exports. **ProxyCLI** solves this issue by combining a smart URI parser with a background systemd service:
+Setting up modern proxy protocols (like VLESS-Reality, VMess, or Trojan) on a headless Linux server or terminal environment usually requires complex JSON configurations and manual environment variable exports. **Linux-Proxy-on** solves this issue by combining a smart URI parser with a background systemd service:
 - **Python URI Parser (`parser.py`)** automatically converts standard share links (`vless://`, `vmess://`, `ss://`, `socks5://`, etc.) into valid Xray JSON configurations.
 - **Xray-core** runs silently in the background via `systemd`, exposing unified local SOCKS5 (`10808`) and HTTP (`10809`) ports.
 - **Bash Functions** inject proxy settings directly into your active terminal session, global profiles, and package managers (`apt`) with a single command—no terminal restart required.
@@ -89,14 +89,14 @@ Outbound IP      : 185.x.x.x (DE - Hetzner Online GmbH)
 Run the automatic installation script. This script installs all dependencies (`curl`, `jq`, `python3`, `unzip`), downloads the latest `Xray-core` binary for your CPU architecture, and registers the terminal commands:
 
 ```bash
-bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/ProxyCLI/main/install.sh](https://raw.githubusercontent.com/amirh-ti/ProxyCLI/main/install.sh)) && source /etc/profile.d/cli-proxy.sh
+bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh](https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh)) && source /etc/profile.d/cli-proxy.sh
 ```
 
 ### Uninstallation
-To completely remove ProxyCLI (including the systemd service, Xray core, and environment configs), run the uninstaller script:
+To completely remove Linux-Proxy-on (including the systemd service, Xray core, and environment configs), run the uninstaller script:
 
 ```bash
-bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/ProxyCLI/main/uninstall.sh](https://raw.githubusercontent.com/amirh-ti/ProxyCLI/main/uninstall.sh))
+bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh](https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh))
 ```
 
 ---
@@ -227,7 +227,7 @@ sudo systemctl restart cli-proxy.service
 ## 📁 Project Structure
 
 ```text
-ProxyCLI/
+Linux-Proxy-on/
 ├── install.sh                 # Automated Linux installer & systemd builder
 ├── uninstall.sh               # Complete cleanup and removal script
 ├── parser.py                  # Multi-protocol URI to Xray JSON converter
@@ -262,7 +262,7 @@ Contributions to project development, submitting bug reports, and suggestions ar
 4. **Push** the branch (`git push origin feature/AmazingFeature`).  
 5. Submit a **Pull Request**.  
 
-If **ProxyCLI** was useful to you, please support it by giving a **⭐ Star** on GitHub!
+If **Linux-Proxy-on** was useful to you, please support it by giving a **⭐ Star** on GitHub!
 
 ---
 
