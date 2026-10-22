@@ -12,7 +12,9 @@ def pad_b64(data: str) -> str:
     missing_padding = len(data) % 4
     if missing_padding:
         data += '=' * (4 - missing_padding)
-    return base64.urlsafe_b64decode(data).decode('utf-8', errors='ignore')
+    
+    data = data.replace('-', '+').replace('_', '/')
+    return base64.b64decode(data).decode('utf-8', errors='ignore')
 
 def parse_link(uri: str):
     uri = uri.strip()
