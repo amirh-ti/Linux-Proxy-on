@@ -89,14 +89,14 @@ Outbound IP      : 185.x.x.x (DE - Hetzner Online GmbH)
 Run the automatic installation script. This script installs all dependencies (`curl`, `jq`, `python3`, `unzip`), downloads the latest `Xray-core` binary for your CPU architecture, and registers the terminal commands:
 
 ```bash
-bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh](https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh)) && source /etc/profile.d/cli-proxy.sh
+bash <(curl -Ls https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/install.sh) && source /etc/profile.d/cli-proxy.sh
 ```
 
 ### Uninstallation
 To completely remove Linux-Proxy-on (including the systemd service, Xray core, and environment configs), run the uninstaller script:
 
 ```bash
-bash <(curl -Ls [https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh](https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh))
+bash <(curl -Ls https://raw.githubusercontent.com/amirh-ti/Linux-Proxy-on/main/uninstall.sh)
 ```
 
 ---
