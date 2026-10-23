@@ -6,11 +6,12 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-echo -e "\033[0;36m[1/4] Installing prerequisites (curl, jq, python3, unzip)...\033[0m"
+echo -e "\033[0;36m[1/4] Installing prerequisites...\033[0m"
 if command -v apt-get &>/dev/null; then
-    apt-get update -qq && apt-get install -y -qq curl jq python3 unzip
+    apt-get update
+    apt-get install -y curl jq python3 unzip
 elif command -v dnf &>/dev/null; then
-    dnf install -y -q curl jq python3 unzip
+    dnf install -y curl jq python3 unzip
 elif command -v pacman &>/dev/null; then
     pacman -Sy --noconfirm curl jq python unzip
 fi
@@ -27,20 +28,19 @@ case "$ARCH" in
 esac
 
 if [ ! -f "$PROXY_DIR/xray" ]; then
-    curl -sL "https://mirror.ghproxy.com/https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-${XRAY_ARCH}.zip" -o /tmp/xray.zip
-    unzip -q -o /tmp/xray.zip xray geoip.dat geosite.dat -d "$PROXY_DIR/"
-    chmod +x "$PROXY_DIR/xray"
+    curl -L "https://mirror.ghproxy.com/https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-${XRAY_ARCH}.zip" -o /tmp/xray.zip
+    unzip -o /tmp/xray.zip xray geoip.dat geosite.dat -d "$PROXY_DIR/"
+    chmod -v +x "$PROXY_DIR/xray"
     rm -f /tmp/xray.zip
 fi
 
 echo -e "\033[0;36m[3/4] Copying files and creating the Systemd service...\033[0m"
-cp parser.py "$PROXY_DIR/parser.py"
-chmod +x "$PROXY_DIR/parser.py"
+cp -v parser.py "$PROXY_DIR/parser.py"
+chmod -v +x "$PROXY_DIR/parser.py"
 
-cp proxy-functions.sh /etc/profile.d/cli-proxy.sh
-chmod +x /etc/profile.d/cli-proxy.sh
+cp -v proxy-functions.sh /etc/profile.d/cli-proxy.sh
+chmod -v +x /etc/profile.d/cli-proxy.sh
 
-# Inject into bashrc to ensure it loads in non-login shells
 if ! grep -q "/etc/profile.d/cli-proxy.sh" /etc/bash.bashrc 2>/dev/null; then
     echo "[ -f /etc/profile.d/cli-proxy.sh ] && source /etc/profile.d/cli-proxy.sh" >> /etc/bash.bashrc
 fi
@@ -64,7 +64,7 @@ WantedBy=multi-user.target
 EOF
 
 systemctl daemon-reload
-systemctl enable cli-proxy.service >/dev/null 2>&1
+systemctl enable cli-proxy.service
 
 echo -e "\033[0;32m[4/4] Installation completed successfully!\033[0m"
 echo -e "To activate the commands in the current terminal, run the following command:"
